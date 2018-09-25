@@ -1,0 +1,19 @@
+<head></head>
+<body>
+    <form >
+        <div>
+            enter what you will do <br/>
+            <input type="text"/>
+        </div>
+        <button type="submit">ok</button>
+    </form>
+    <script>
+        const electron=require("electron");
+        const{ipcRenderer}=electron;
+    document.querySelector('form').addEventListener('submit',(event)=>{
+        event.preventDefault();
+        const valeur=document.querySelector('input').value;
+        ipcRenderer.send("todo",valeur);
+
+    }); </script>
+</body>

@@ -1,0 +1,18 @@
+<head></head>
+<body>
+    <h1>this is what you should do</h1>
+    <ul></ul>
+<script>
+const electron=require('electron');
+const {ipcRenderer}=electron;
+ipcRenderer.on("todo",(event,val)=>{
+    const li=document.createElement('li');
+    const text=document.createTextNode(val);
+    li.appendChild(text);
+    document.querySelector('ul').appendChild(li);
+});
+ipcRenderer.on("supprimer",(event)=>{
+    document.querySelector('ul').innerHTML="";
+});
+    </script>
+    </body>
